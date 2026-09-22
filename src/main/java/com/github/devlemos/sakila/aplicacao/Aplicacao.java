@@ -1,11 +1,11 @@
-package com.github.devlemos.sakila.application;
+package com.github.devlemos.sakila.aplicacao;
 
 import com.github.devlemos.sakila.config.BancoDados;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class Application {
+public class Aplicacao {
 
     public void iniciar(
             String url,

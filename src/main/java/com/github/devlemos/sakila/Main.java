@@ -1,6 +1,6 @@
 package com.github.devlemos.sakila;
 
-import com.github.devlemos.sakila.application.Application;
+import com.github.devlemos.sakila.aplicacao.Aplicacao;
 import com.github.devlemos.sakila.config.Configuracao;
 
 public class Main {
@@ -21,8 +21,8 @@ public class Main {
             String senha =
                     configuracao.obter("DB_SENHA");
 
-            Application application =
-                    new Application();
+            Aplicacao application =
+                    new Aplicacao();
 
             application.iniciar(
                     url,

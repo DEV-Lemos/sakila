@@ -37,3 +37,20 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+
+
+# IntelliJ
+.idea/
+
+# Pasta criada incorretamente
+${project.build.directory}/
+
+# Java
+*.class
+
+# Ambiente
+../../../../../../../.env
+
+# Logs
+*.log
