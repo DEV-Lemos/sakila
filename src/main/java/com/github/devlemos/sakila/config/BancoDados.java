@@ -6,16 +6,43 @@ import java.sql.SQLException;
 
 public class BancoDados {
 
-    public Connection abrirConexao(
+    private final String url;
+    private final String usuario;
+    private final String senha;
+
+    public BancoDados(
             String url,
             String usuario,
             String senha
-    ) throws SQLException {
+    ) {
+        this.url = url;
+        this.usuario = usuario;
+        this.senha = senha;
+    }
+
+    public Connection abrirConexao() throws SQLException {
 
         return DriverManager.getConnection(
                 url,
                 usuario,
                 senha
         );
+    }
+
+    public boolean testarConexao() {
+
+        try (
+                Connection conexao = abrirConexao()
+        ) {
+
+            return conexao.isValid(2);
+
+        } catch (SQLException e) {
+
+            System.out.println("Erro ao conectar ao banco.");
+            System.out.println(e.getMessage());
+
+            return false;
+        }
     }
 }

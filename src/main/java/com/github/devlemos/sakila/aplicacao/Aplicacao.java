@@ -1,9 +1,8 @@
 package com.github.devlemos.sakila.aplicacao;
 
+import com.github.devlemos.sakila.administracao.rede.loja.LojaRotas;
 import com.github.devlemos.sakila.config.BancoDados;
-
-import java.sql.Connection;
-import java.sql.SQLException;
+import com.github.devlemos.sakila.infraestrutura.http.ServidorHttp;
 
 public class Aplicacao {
 
@@ -13,25 +12,52 @@ public class Aplicacao {
             String senha
     ) {
 
-        BancoDados bancoDados = new BancoDados();
+        try {
 
-        try (Connection conexao =
-                     bancoDados.abrirConexao(
-                             url,
-                             usuario,
-                             senha
-                     )) {
+            BancoDados bancoDados =
+                    new BancoDados(
+                            url,
+                            usuario,
+                            senha
+                    );
 
-            System.out.println("Sakila iniciado.");
+            if (!bancoDados.testarConexao()) {
+
+                System.out.println(
+                        "Sakila nao foi iniciado."
+                );
+
+                return;
+            }
+
             System.out.println(
-                    "Conexão com banco: " +
-                            conexao.isValid(2)
+                    "Conexao com banco: true"
             );
 
-        } catch (SQLException e) {
+
+            ServidorHttp servidor =
+                    new ServidorHttp(
+                            8080
+                    );
+
+
+            LojaRotas lojaRotas =
+                    new LojaRotas(servidor);
+
+            lojaRotas.registrar();
+
+
+            servidor.iniciar();
+
 
             System.out.println(
-                    "Erro ao conectar ao banco."
+                    "Sakila iniciado."
+            );
+
+        } catch (Exception e) {
+
+            System.out.println(
+                    "Erro ao iniciar Sakila."
             );
 
             System.out.println(
