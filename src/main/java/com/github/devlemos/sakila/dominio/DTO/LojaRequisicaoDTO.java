@@ -53,11 +53,11 @@ public class LojaRequisicaoDTO {
         this.codigo = codigo;
     }
 
-    public Long getGerente() {
+    public Long getGerenteId() {
         return gerenteId;
     }
 
-    public void setGerente(Long gerenteId) {
+    public void setGerenteId(Long gerenteId) {
         this.gerenteId = gerenteId;
     }
 
@@ -99,12 +99,5 @@ public class LojaRequisicaoDTO {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
-    }
-
-    public Long getGerenteId() {
-        return gerenteId == null ? null : gerenteId;
-    }
-
-    public Object getPerfil() {
     }
 }

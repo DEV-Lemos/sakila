@@ -1,6 +1,8 @@
 package com.github.devlemos.sakila.dominio.repositorios;
 
+import com.github.devlemos.sakila.dominio.modelos.Funcionario;
+
 public interface FuncionarioRepositorio {
 
-    Long buscarPorId(Long id);
+    Funcionario buscarPorId(Long id);
 }
