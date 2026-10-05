@@ -58,6 +58,8 @@ public class LojaServico {
             endereco.setTelefone(dados.getTelefone());
         }
 
+
+
         Loja loja = new Loja();
 
         loja.setNome(dados.getNome());
