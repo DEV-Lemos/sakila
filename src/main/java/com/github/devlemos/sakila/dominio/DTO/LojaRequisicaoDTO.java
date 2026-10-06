@@ -1,6 +1,5 @@
 package com.github.devlemos.sakila.dominio.DTO;
 
-import com.github.devlemos.sakila.dominio.modelos.Cidade;
 import com.github.devlemos.sakila.dominio.modelos.Endereco;
 
 public class LojaRequisicaoDTO {
@@ -10,7 +9,7 @@ public class LojaRequisicaoDTO {
     private Long gerenteId;
     private Boolean ativa;
     private Endereco endereco;
-    private Cidade cidade;
+
     private String cep;
     private String telefone;
 
@@ -23,7 +22,7 @@ public class LojaRequisicaoDTO {
             Long gerenteId,
             Boolean ativa,
             Endereco endereco,
-            Cidade cidade,
+
             String cep,
             String telefone
     ) {
@@ -32,7 +31,6 @@ public class LojaRequisicaoDTO {
         this.gerenteId = gerenteId;
         this.ativa = ativa;
         this.endereco = endereco;
-        this.cidade = cidade;
         this.cep = cep;
         this.telefone = telefone;
     }
@@ -75,14 +73,6 @@ public class LojaRequisicaoDTO {
 
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
-    }
-
-    public Cidade getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(Cidade cidade) {
-        this.cidade = cidade;
     }
 
     public String getCep() {
